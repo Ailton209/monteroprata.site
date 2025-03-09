@@ -3,193 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja online</title>
-    <link rel="stylesheet" href="src/css/styles.css">
-    <link rel="icon" href="src/imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/styles/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <title>Tuurvy.com</title>
 </head>
 <body>
-    <!-- Menu fixo no topo -->
-    <div class="nav-bar">
-        <button id="ir-cadastro">Cadastro</button>
-        <button id="ir-vendas">Vendas</button>
-        <button id="ir-reposicao">Reposição</button>
-        <button id="ir-editar">Edição</button>
-        <button id="ir-historico">Histórico</button>
-    </div>
+    <header>
+        <nav id="navbar">          
+            <img src="src/images/logo.png">
 
-    <!-- Página de Cadastro de Produtos -->
-    <div class="container" id="cadastro-page">
-        <h1>Cadastro de Produtos</h1>
-        <div id="produtos-cadastro">
-            <label for="produto-nome">Nome do Produto:</label>
-            <input type="text" id="produto-nome" placeholder="Nome do Produto">
+            <ul id="nav_list">
+                <li class="nav-item active">
+                    <a href="#home">Inicio
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Estoque</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Avaliações</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#form-container">Financie ou Venda seu carro</a>
+                </li>
+            </ul>
 
-            <label for="produto-preco">Preço de Venda (R$):</label>
-            <input type="number" id="produto-preco" placeholder="Defina o preço de venda" step="0.01">
+            <a href="tel:+5511940633910" id="phone_button">
+                <button class="btn-default">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </button>
+                (11) 94063-3910
+            </a>
 
-            <!-- Seção para selecionar o tipo de quantidade: Unidades ou Kg -->
-            <label>Selecione o tipo de estoque:</label>
-            <div id="tipo-estoque">
-                <input type="radio" id="estoque-unidade" name="tipoEstoque" value="unidade" checked>
-                <label for="estoque-unidade">Unidades</label>
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
 
-                <input type="radio" id="estoque-kg" name="tipoEstoque" value="kg">
-                <label for="estoque-kg">Kg</label>
-            </div>
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item">
+                    <a href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Estoque</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Avaliações</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#form-container">Financie ou Venda seu carro</a>
+                </li>
+            </ul>
 
-            <div id="estoque-unidade-container">
-                <label for="produto-estoque-unidade">Quantidade em Estoque (Unidades):</label>
-                <input type="number" id="produto-estoque-unidade" placeholder="Quantidade em Unidades">
-            </div>
-
-            <div id="estoque-kg-container" class="hidden">
-                <label for="produto-estoque-kg">Quantidade em Estoque (Kg):</label>
-                <input type="number" id="produto-estoque-kg" placeholder="Quantidade em Kg">
-            </div>
-
-            <button id="add-produto">Adicionar Produto</button>
+            <button class="btn-default">
+                <i class="fa-brands fa-whatsapp"></i>
+            </button>
         </div>
+    </header>
 
-    </div>
+    <main id="content">
+        <section id="home">
+            <div class="shape"></div>
+            <div id="cta">
+                <h1 class="title">
+                    Dirija seu
+                    <span>sonho</span>
+                    com a gente!
+                </h1>
 
-    <!-- Página de Vendas -->
-    <div class="container hidden" id="vendas-page">
-        <h1>Página de Vendas</h1>
-        
-    <!-- Campo para entrada de caixa -->
-    <div id="entrada-caixa-container">
-      <label for="entrada-caixa">Entrada de Caixa:</label>
-      <input type="number" id="entrada-caixa" placeholder="Valor de entrada">
-      <button id="confirmar-entrada-caixa">Confirmar Entrada</button>
-    </div>
-   <p id="valor-entrada-caixa">R$ 0.00</p>
+                <p class="description">
+                    Precisando vender seu carro rápido, nós vendemos seu carro em minutos de forma rápida, fácil e segura.
+                    Agende sua avaliação gratuita hoje mesmo
+                </p>
 
-    <div>
-      <input type="text" id="pesquisa-produto" placeholder="Digite o nome do produto">
-    </div>
-        <div id="produto-venda">
-            <label for="produto-selecionado">Selecione o Produto:</label>
-            <select id="produto-selecionado"></select>
+                <div id="cta_buttons">
+                    <a href="#menu" class="btn-default">
+                        Ver veiculos
+                    </a>
 
-            <div id="input-peso-container" class="hidden">
-                <label for="peso-em-gramas">Peso em gramas:</label>
-                <input type="number" id="peso-em-gramas" placeholder="Digite o peso em gramas">
+                    <a href="#" class="btn-default">
+                        Ver localização
+                    </a>
+                </div>
+
+                <div class="social-media-buttons">
+                    <a href="">
+                        <i class="fa-brands fa-whatsapp" href="tel:+5511940633910"></i>
+                    </a>
+
+                    <a href="">
+                        <i class="fa-brands fa-instagram" onclick="window.open('https://www.instagram.com/tuurvy.jundiai/', '_blank');"></i>
+                    </a>
+
+                    <a href="">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
             </div>
-            <div id="preco-convertido-container" class="hidden">
-                <p id="preco-convertido"></p>
+
+            <div id="banner">
+                <img src="src/images/hero.png" alt="">
             </div>
-              <button id="adicionar-produto">Adicionar Produto ao Pedido</button>
+        </section>
 
-            <label>Selecione o Tipo de Pagamento:</label>
-            <div id="tipo-pagamento">
-                <input type="radio" id="pagamento-dinheiro" name="tipoPagamento" value="dinheiro" checked>
-                <label for="pagamento-dinheiro">Dinheiro</label>
+        <section id="menu">
+            <h2 class="section-title">Catálogo</h2>
+            <h3 class="section-subtitle">Nossos veiculos especiais</h3>
 
-                <input type="radio" id="pagamento-cartao" name="tipoPagamento" value="cartao">
-                <label for="pagamento-cartao">Cartão</label>
+            <div id="dishes">
+                <div class="dish">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
 
-                <input type="radio" id="pagamento-pix" name="tipoPagamento" value="pix">
-                <label for="pagamento-pix">Pix</label>
+                    <img src="src/images/KwidFrente.jpg" class="dish-image" alt="">
+
+                    <h3 class="dish-title">
+                        Lorem Ipsum
+                    </h3>
+
+                    <span class="dish-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </span>
+
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(500+)</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R$20,00</h4>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dish">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <img src="src/images/KwidFrente.jpg" class="dish-image" alt="">
+
+                    <h3 class="dish-title">
+                        Lorem Ipsum
+                    </h3>
+
+                    <span class="dish-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </span>
+
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(500+)</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R$20,00</h4>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dish">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <img src="src/images/KwidFrente.jpg" class="dish-image" alt="">
+
+                    <h3 class="dish-title">
+                        Lorem Ipsum
+                    </h3>
+
+                    <span class="dish-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </span>
+
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(500+)</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R$20,00</h4>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dish">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <img src="src/images/KwidFrente.jpg" class="dish-image" alt="">
+
+                    <h3 class="dish-title">
+                        Lorem Ipsum
+                    </h3>
+
+                    <span class="dish-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </span>
+
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(500+)</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R$20,00</h4>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                <button class="btn-default">
+                    Ver mais ->
+                </button>
             </div>
-          
-           <div id="resumo-pedido">
-          <h3>Resumo do Pedido:</h3>
+        </section>
+
+        <section id="testimonials">
+            <img src="src/images/chef.png" id="testimonial_chef" alt="">
+
+            <div id="testimonials_content">
+                <h2 class="section-title">
+                    Depoimentos
+                </h2>
+                <h3 class="section-subtitle">
+                    O que os clientes falam sobre nós
+                </h3>
+
+                <div id="feedbacks">
+                    <div class="feedback">
+                        <img src="src/images/ElaineCardoso.png" class="feedback-avatar" alt="">
+
+                        <div class="feedback-content">
+                            <p>
+                                Elaine Cardoso
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </p>
+                            <p>
+                                "Atendimento excelente, conseguiram vender um carro meu rapidamente, me deram todo suporte pré e pós venda. Super indico!"
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feedback">
+                        <img src="src/images/GiovanaSantos.png" class="feedback-avatar" alt="">
+
+                        <div class="feedback-content">
+                            <p>
+                                Giovana Santos
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </p>
+                            <p>
+                                "Lugar excelente, carros de ótimo estado e procedência!"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-default" onclick="window.open('https://www.google.com/maps/place/Tuurvy/@-23.2086056,-46.8655779,17z/data=!4m16!1m9!3m8!1s0x94cf21dc52f60929:0x659ec1b8928c0a0f!2sTuurvy!8m2!3d-23.2086056!4d-46.863003!9m1!1b1!16s%2Fg%2F11spqfvqwc!3m5!1s0x94cf21dc52f60929:0x659ec1b8928c0a0f!8m2!3d-23.2086056!4d-46.863003!16s%2Fg%2F11spqfvqwc?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MDIxMC4wIKXMDSoASAFQAw%3D%3D', '_blank');">
+                    Ver mais avaliações
+                </button>
+            </div>
+        </section>
+
+        <h2 class="section-title">Faça négocio conosco!</h2>
+        <section id="form-container">
+            <div id="request-car-container">
+                    <form id="request-car-form">
+                        <h3 class="section-subtitle">Financie</h3>
+                        <div class="form-group">
+                            <label for="desired-vehicle">Dados do veículo desejado</label>
+                            <input type="text" id="desired-vehicle" name="desired-vehicle" placeholder="Marca, Modelo, Ano, Quilometragem" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="request-name">Seu nome</label>
+                            <input type="text" id="request-name" name="request-name" placeholder="Nome e Sobrenome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf">Seu CPF</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="request-phone">Seu celular</label>
+                            <input type="tel" id="request-phone" name="request-phone" placeholder="(XX)XXXX-XXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="request-email">Seu e-mail</label>
+                            <input type="email" id="request-email" name="request-email" placeholder="seuemail@email.com" required>
+                        </div>
+                        <button type="submit" class="btn-default">Enviar</button>
+                    </form>
+            </div>
+
+            <div id="sell-car-container">
+                    <form id="sell-car-form">
+                        <h3 class="section-subtitle">Venda seu carro</h3>
+                        <div class="form-group">
+                            <label for="vehicle">Dados do Veículo</label>
+                            <input type="text" id="vehicle" name="vehicle" placeholder="Marca, Modelo, Ano, Quilometragem" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Seu Nome</label>
+                            <input type="text" id="name" name="name" placeholder="Nome e Sobrenome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Seu Celular</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(XX)XXXX-XXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Seu E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="seuemail@email.com" required>
+                        </div>
+                        <button type="submit" class="btn-default">Enviar Proposta</button>
+                </form>
+            </div>
+        </section>            
+            
+    </section>
+    </main>
+
+    <footer>
+        <img src="src/images/wave.svg" alt="">
+
+        <div id="footer_items">
+            <span id="copyright">
+                &copy 2025 João Severo
+            </span>
+
+            <div class="social-media-buttons">
+                <a href="">
+                    <i class="fa-brands fa-whatsapp" href="tel:+5511940633910"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-brands fa-instagram" onclick="window.open('https://www.instagram.com/tuurvy.jundiai/', '_blank');"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
         </div>
-
-            <button id="vender">Vender</button>
-        </div>
-
-        <button id="fechar-caixa">Fechar Caixa</button>
-       
-
-        <div id="popup-reset" class="popup-reset">
-      <div class="popup-content">
-        <span id="popup-close" class="popup-close">&times;</span>
-        <h2>Caixa Resetado</h2>
-        <p>O fechamento do caixa foi realizado com sucesso e o caixa foi resetado para o próximo dia.</p>
-      </div>
-    </div>
-     <h2>Pedidos Realizados</h2>
-    <table id="tabela-pedidos">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Produtos</th>
-            <th>Quantidade</th>
-            <th>Valor Total</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Linhas da tabela serão adicionadas dinamicamente -->
-    </tbody>
-</table>
-
-
-        <div id="alerta-estoque" class="hidden">⚠️ Estoque Baixo!</div>
-    </div>
-
-    <!-- Página de Reposição de Itens -->
-    <div class="container hidden" id="reposicao-page">
-        <h1>Reposição de Itens</h1>
-        <div id="produto-reposicao">
-            <label for="produto-selecionado-reposicao">Selecione o Produto:</label>
-            <select id="produto-selecionado-reposicao"></select>
-         </div>
-         <div id="quantidade-reposicao">
-            <label for="quantidade-repor">Quantidade para Repor:</label>
-            <input type="number" id="quantidade-repor" min="1" placeholder="Informe a quantidade">
-        </div>
-        <button id="confirmar-reposicao">Confirmar Reposição</button>
-
-    </div>
-
-    <!-- Página de Produtos para Edição e Remoção -->
-    <div class="container hidden" id="editar-page">
-        <h1>Editar/Remover Produtos</h1>
-        <label for="produto-selecionado-editar">Selecione o Produto para Editar:</label>
-        <select id="produto-selecionado-editar"></select>
-
-        <label for="novo-nome-produto">Novo Nome do Produto:</label>
-        <input type="text" id="novo-nome-produto" placeholder="Novo nome do produto">
-
-        <label for="novo-preco-produto">Novo Preço (R$):</label>
-        <input type="number" id="novo-preco-produto" placeholder="Novo preço">
-
-        <button id="salvar-edicao">Salvar Edição</button>
-        <button id="remover-produto">Remover Produto</button>
-
-    </div>
-    
-<!-- Página de Histórico -->
-<div id="historico-page" class="hidden">
-  <h1>Histórico de Vendas</h1>
-  <table id="tabela-historico">
-    <thead>
-        <tr>
-            <th>Data</th>
-            <th>Unidades Vendidas</th>
-            <th>Kg vendidos</th>
-            <th>Valor Total (R$)</th>
-            <th>Valor Cancelado (R$)</th>
-            <th>Unidades Canceladas</th> 
-            <th>kg Cancelados</th> 
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Registros de vendas serão adicionados dinamicamente -->
-    </tbody>
-  </table>
-  <button id="limpar-historico" class="botao">Limpar Histórico</button>
-  <div>
-    <button id="exportar-csv" class="botao">Exportar para CSV</button>
-    <button id="exportar-pdf" class="botao">Exportar para PDF</button>
-  </div>
-</div>
-
-
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-
+    </footer>
     <script src="src/javascript/script.js"></script>
 </body>
 </html>
